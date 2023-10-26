@@ -1,5 +1,6 @@
 const { Country } = require("../../db");
 
+// Exportamos una función que obtiene un país por ID
 module.exports = async (req, res) => {
   try {
     const { id } = req.params;

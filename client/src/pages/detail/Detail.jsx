@@ -4,26 +4,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
 import { Country } from "../../components/country/Country";
 import axios from "axios";
-import { Alert } from "../../components/alerts/Alert";
-import { useState } from "react";
 import { getActivities } from "../../redux/countriesSlice";
 
 export const Detail = () => {
+  const dispatch = useDispatch();
+  // Obtenemos el id del pais de la ruta
   const { idCountry } = useParams();
+  // Obtenemos todos los paises de nuestro store
   const countries = useSelector((state) => state.countries.allCountries);
+  // Filtramos el pais que coincida con el id de la ruta
   const country = countries.find(
     (currentCountry) => currentCountry.id === idCountry
   );
 
+  // Con useNavigate podemos navegar a otras rutas
   const navigate = useNavigate();
 
   if (!country) return;
   const countryActivities = country.Activities;
 
-  const dispatch = useDispatch();
-
+  // Handler para eliminar una actividad
   const deleteActivity = async (id) => {
     try {
+      // Hacemos una peticion delete a nuestro servidor
       const { data, status } = await axios.delete(
         `http://localhost:3001/activities/`,
         {
@@ -32,13 +35,17 @@ export const Detail = () => {
       );
 
       if (status === 200) {
+        // Si la peticion fue exitosa, actualizamos el estado de nuestro store
         const newActivities = countryActivities.filter(
           (activity) => activity.id !== id
         );
+        // Enviamos la accion a nuestro stores
         dispatch(getActivities(newActivities));
+        // Navegamos a la ruta /home
         navigate("/home");
       }
     } catch (error) {
+      // Si la peticion falla, mostramos el error
       alert(error.response.data.message);
     }
   };

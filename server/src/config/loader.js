@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { Country } = require("../db");
 
+// Exportamos una función que obtiene todos los países de la API y los carga en la base de datos
 module.exports = async () => {
   try {
     const { data } = await axios("http://localhost:5000/countries");

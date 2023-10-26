@@ -1,5 +1,6 @@
 const { Activity } = require("../../db");
 
+// Exportamos una función que elimina una actividad
 module.exports = async (req, res) => {
   try {
     const { id } = req.body;

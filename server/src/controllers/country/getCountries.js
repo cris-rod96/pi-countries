@@ -1,5 +1,6 @@
 const { Country, Activity } = require("../../db");
 
+// Exportamos una función que obtiene todos los países
 module.exports = async (req, res) => {
   try {
     const countries = await Country.findAll({

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Estado inicial
 const initialState = {
   allCountries: [],
   activities: [],
@@ -8,19 +9,23 @@ const initialState = {
   currentPage: 1,
 };
 
+// Reducer
 export const countriesSlice = createSlice({
   name: "countries",
   initialState,
   reducers: {
+    // Guardo en el estado los paises que me llegan de la API/BD
     getCountries: (state, action) => {
       state.allCountries = action.payload;
       state.filteredCountries = action.payload;
     },
 
+    // Guardo en el estado las actividades que me llegan de la API/BD
     getActivities: (state, action) => {
       state.activities = action.payload;
     },
 
+    // Borro una actividad del estado
     deleteActivity: (state, action) => {
       const id = action.payload;
       state.activities = state.activities.filter(
@@ -28,6 +33,7 @@ export const countriesSlice = createSlice({
       );
     },
 
+    // Filtro los paises por actividades
     filterByActivities: (state, action) => {
       const filtro = action.payload;
       switch (filtro) {
@@ -50,6 +56,7 @@ export const countriesSlice = createSlice({
       }
     },
 
+    // Filtro los paises por continente
     filterByContinent: (state, action) => {
       // Posible paso a minusculas
       if (action.payload === "All") {
@@ -61,6 +68,7 @@ export const countriesSlice = createSlice({
       );
     },
 
+    // Ordeno los paises
     orderCountries: (state, action) => {
       const filter = action.payload;
       switch (filter) {
@@ -101,10 +109,12 @@ export const countriesSlice = createSlice({
       }
     },
 
+    // Cambio la pagina actual
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
     },
 
+    // Busco paises por nombre
     searchByName: (state, action) => {
       const name = action.payload.toLowerCase();
       state.filteredCountries = state.allCountries.filter((country) =>

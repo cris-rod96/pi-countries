@@ -16,13 +16,16 @@ import { useEffect } from "react";
 
 export const Home = () => {
   const dispatch = useDispatch();
+  // Con useSelector puedo obtener el estado de mi store
   const countriesState = useSelector((state) => state.countries);
+  // Destructuro el estado de mi store
   const {
     filteredCountries: countries,
     countriesPerPage,
     currentPage,
   } = countriesState;
 
+  // Handlers
   const handlerFilteredByContinent = (value) => {
     dispatch(filterByContinent(value));
   };
@@ -38,11 +41,13 @@ export const Home = () => {
     dispatch(filterByActivities(value));
   };
 
+  // Pagination
   const totalPages = Math.ceil(countries.length / countriesPerPage);
   const startIndex = (currentPage - 1) * countriesPerPage;
   const endIndex = startIndex + countriesPerPage;
   const countriesSlice = countries.slice(startIndex, endIndex);
 
+  // Con useEffect hago peticiones a mi servidor para obtener los paises, esto arregla la carga de países despues de cambiar de ruta
   useEffect(() => {
     async function fetchCountries() {
       const { data } = await axios("http://localhost:3001/countries");

@@ -1,5 +1,6 @@
 const { Activity } = require("../../db");
 
+// Exportamos una función que crea una actividad
 module.exports = async (req, res) => {
   try {
     const { name, difficulty, duration, season, countries } = req.body;

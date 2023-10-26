@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const { Country } = require("../../db");
-
+// Exportamos una función que obtiene un país por nombre
 module.exports = async (req, res) => {
   try {
     const { name } = req.query;

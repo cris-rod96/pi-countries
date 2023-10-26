@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 
+// Exportamos una funcion que define el modelo (o sea la tabla) de la base de datos
 module.exports = (sequelize) => {
   sequelize.define("Activity", {
     id: {
