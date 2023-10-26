@@ -2,22 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/loader/Loader";
 import styledLanding from "./Landing.module.css";
+import { images } from "../../utils/paths/images";
 export const Landing = () => {
-  const images = [
-    {
-      image: "back_country.jpg",
-      title: "Countries",
-      description:
-        "Encontrarás las banderas de todos los países del mundo así como información relevante de cada país como pueden ser las Capitales,Población y Área",
-    },
-    {
-      image: "ciclismo.jpg",
-      title: "Activities",
-      description:
-        "Podrás planificar y registrar tus actividades favoritas en el o los países que desees.",
-    },
-  ];
-
   const [indexImage, setIndexImage] = useState(0);
   const setActive = (idx) => {
     document
@@ -31,6 +17,7 @@ export const Landing = () => {
         }
       });
   };
+
   const handleClick = (e) => {
     const { value } = e.target;
     setIndexImage(value);
@@ -63,8 +50,6 @@ export const Landing = () => {
       <div className={styledLanding.boxWelcome}>
         <div className={styledLanding.content}>
           <img src={"world_flags.png"} alt="" />
-          {/* <h3>Escribe tu nombre para continuar</h3> */}
-          {/* <input type="text" className={styledLanding.inputName} /> */}
           <Link to={"/home"}>
             <button className={styledLanding.btnHome}>Home Page</button>
           </Link>

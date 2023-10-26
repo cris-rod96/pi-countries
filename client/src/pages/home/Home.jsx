@@ -11,6 +11,7 @@ import {
   filterByActivities,
   getCountries,
 } from "../../redux/countriesSlice";
+
 import styledHome from "./Home.module.css";
 import { useEffect } from "react";
 
