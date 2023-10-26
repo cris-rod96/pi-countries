@@ -6,7 +6,7 @@ const PORT = 3001;
 
 // Sincronizamos la base de datos y levantamos el servidor
 conn
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);

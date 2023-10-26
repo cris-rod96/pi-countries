@@ -10,6 +10,18 @@
 .content {
   width: 100%;
   display: grid;
+  /* grid-template-columns: repeat(2, 1fr); */
+  gap: 10px;
+}
+.title {
+  font-size: 35px;
+  font-weight: 300;
+  color: rgb(100, 97, 97);
+  margin: 20px auto;
+  font-weight: bold;
+}
+.boxForm {
+  display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
@@ -180,6 +192,14 @@ input[type="range"]:focus::-ms-fill-upper {
   align-items: center;
 }
 
+.activities > h2 {
+  font-size: 35px;
+  font-weight: 300;
+  color: rgb(100, 97, 97);
+  margin: 20px auto;
+  font-weight: bold;
+}
+
 .description {
   display: grid;
   text-align: center;
@@ -326,6 +346,50 @@ input[type="range"]:focus::-ms-fill-upper {
   align-items: center;
 }
 
-/* Inputs Errors */
-.inputError {
+.activities {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contenido {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.contenido > p {
+  font-size: 100px;
+}
+.contenido > h3 {
+  font-size: 24px;
+  text-wrap: wrap;
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: 300;
+  line-height: 34px;
+}
+
+.difficulty {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(100, 97, 97);
+  margin: 10px auto;
+  text-align: center;
 }

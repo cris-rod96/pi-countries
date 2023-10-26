@@ -63,8 +63,8 @@ export const Landing = () => {
       <div className={styledLanding.boxWelcome}>
         <div className={styledLanding.content}>
           <img src={"world_flags.png"} alt="" />
-          <h3>Escribe tu nombre para continuar</h3>
-          <input type="text" className={styledLanding.inputName} />
+          {/* <h3>Escribe tu nombre para continuar</h3> */}
+          {/* <input type="text" className={styledLanding.inputName} /> */}
           <Link to={"/home"}>
             <button className={styledLanding.btnHome}>Home Page</button>
           </Link>

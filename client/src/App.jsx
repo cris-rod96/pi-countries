@@ -41,11 +41,11 @@ function App() {
     getAllCountries();
   }, []);
 
+  // Si la ruta actual es distinta a "/" muestro el navbar
+  // Con Routes puedo definir las rutas de mi aplicacion
   return (
     <>
-      // Si la ruta actual es distinta a "/" muestro el navbar
       {pathname != "/" && <Navbar />}
-      // Con Routes puedo definir las rutas de mi aplicacion
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/home" element={<Home />} />

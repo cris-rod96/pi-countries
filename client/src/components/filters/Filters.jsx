@@ -45,21 +45,6 @@ export const Filters = (props) => {
       </div>
       <div className={styledFilters.filter}>
         <select
-          name="selectActivity"
-          id="selectActivty"
-          className={styledFilters.filterSelect}
-          onChange={handleFilterActivity}
-        >
-          <option selected disabled value="">
-            -- Choice an option --
-          </option>
-          <option value="no_filtro">All</option>
-          <option value="con_activities">Países con actividades</option>
-          <option value="sin_activities">Países sin actividades</option>
-        </select>
-      </div>
-      <div className={styledFilters.filter}>
-        <select
           name="selectOrder"
           id="selectOrder"
           className={styledFilters.filterSelect}
@@ -77,6 +62,21 @@ export const Filters = (props) => {
             <option value="population_asc">Ascendente</option>
             <option value="population_desc">Descendente</option>
           </optgroup>
+        </select>
+      </div>
+      <div className={styledFilters.filter}>
+        <select
+          name="selectActivity"
+          id="selectActivty"
+          className={styledFilters.filterSelect}
+          onChange={handleFilterActivity}
+        >
+          <option selected disabled value="">
+            -- Choice an option --
+          </option>
+          <option value="no_filtro">All</option>
+          <option value="con_activities">Países con actividades</option>
+          <option value="sin_activities">Países sin actividades</option>
         </select>
       </div>
     </div>
