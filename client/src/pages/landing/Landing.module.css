@@ -178,9 +178,9 @@
   outline: none;
   width: 100%;
   height: 50px;
-  border: 2px solid black;
+  border: 2px solid #2da2ca;
   color: white;
-  background-color: black;
+  background-color: #2da2ca;
   cursor: pointer;
   font-size: 18px;
   border-radius: 8px;
@@ -188,6 +188,6 @@
 }
 
 .btnHome:hover {
-  background-color: rgb(59, 59, 59);
-  box-shadow: 0px 0px 20px rgb(59, 59, 59);
+  background-color: #1d83ac;
+  box-shadow: 0px 0px 20px #1d83ac;
 }

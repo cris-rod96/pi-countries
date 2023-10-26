@@ -9,8 +9,9 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #ccc;
-  background-color: transparent;
+  border: 1px solid #12b77c;
+  background-color: #12b77c;
+  color: white;
   font-size: 12px;
   outline: none;
   cursor: pointer;
@@ -20,9 +21,11 @@
   font-size: 18px;
 }
 .paginated button:hover {
-  background-color: #ccc;
+  background-color: #079465;
 }
 .paginated button:disabled {
-  background-color: #ccc;
+  background-color: #a8f2ce;
+  border: 1px solid #a8f2ce;
+  color: #067654;
   cursor: not-allowed;
 }

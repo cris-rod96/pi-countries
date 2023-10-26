@@ -1,6 +1,7 @@
 import styledCountry from "./Country.module.css";
 export const Country = (props) => {
-  const { name, difficulty, duration, season } = props;
+  const { name, difficulty, duration, season, deleteActivity, id } = props;
+
   const imageActivities = {
     Puenting: "/puenting.png",
     Ciclismo: "/ciclismo.jpg",
@@ -14,6 +15,10 @@ export const Country = (props) => {
     Otoño: "🍂",
     Primavera: "🌺",
     Invierno: "🥶",
+  };
+
+  const handleActivity = (e) => {
+    deleteActivity(id);
   };
 
   return (
@@ -44,6 +49,9 @@ export const Country = (props) => {
             {season} {seasons[season]}
           </p>
         </div>
+        <button className={styledCountry.btnDelete} onClick={handleActivity}>
+          Delete
+        </button>
       </div>
     </div>
   );

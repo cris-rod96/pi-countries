@@ -18,6 +18,7 @@ export const Filters = (props) => {
   const handleFilterActivity = (e) => {
     const { value } = e.target;
     filterActivities(value);
+    dispatch(setCurrentPage(1));
   };
 
   return (
@@ -29,6 +30,9 @@ export const Filters = (props) => {
           className={styledFilters.filterSelect}
           onChange={handleChangeContinent}
         >
+          <option selected disabled value="">
+            -- Choice a continent --
+          </option>
           <option value="All">All</option>
           <option value="Africa">Africa</option>
           <option value="Antarctica">Antarctida</option>
@@ -46,7 +50,10 @@ export const Filters = (props) => {
           className={styledFilters.filterSelect}
           onChange={handleFilterActivity}
         >
-          <option value="no_filtro">No filtrar</option>
+          <option selected disabled value="">
+            -- Choice an option --
+          </option>
+          <option value="no_filtro">All</option>
           <option value="con_activities">Países con actividades</option>
           <option value="sin_activities">Países sin actividades</option>
         </select>
@@ -58,6 +65,9 @@ export const Filters = (props) => {
           className={styledFilters.filterSelect}
           onChange={handleOrderCountries}
         >
+          <option disabled selected value="">
+            -- Choice a filter --
+          </option>
           <option value="null">No filter</option>
           <optgroup label="Nombre">
             <option value="name_asc">Ascendente</option>

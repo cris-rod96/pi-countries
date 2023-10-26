@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styledSearch from "./SearchBar.module.css";
 import { useDispatch } from "react-redux";
 import { searchByName, setCurrentPage } from "../../redux/countriesSlice";
@@ -13,11 +12,11 @@ export const SearchBar = (props) => {
     <>
       <input
         type="text"
-        name=""
-        id=""
+        name="name"
+        id="name"
         className={styledSearch.inputSearch}
         onChange={handleChange}
-        placeholder="Búsqueda por nombre"
+        placeholder="Type a country name"
       />
     </>
   );

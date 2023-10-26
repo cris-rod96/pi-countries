@@ -6,10 +6,9 @@ module.exports = async (req, res) => {
       include: [Country],
     });
 
-    if (activities.length > 0) {
-      return res.status(200).json(activities);
-    }
-    return res.status(404).json({ message: "No Activities" });
+    return activities.length > 0
+      ? res.status(200).json(activities)
+      : res.status(204).json({ message: "No Activities" });
   } catch ({ message }) {
     return res.status(500).json({ message });
   }

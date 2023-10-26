@@ -5,13 +5,20 @@ module.exports = async (req, res) => {
     const { name, difficulty, duration, season, countries } = req.body;
     if (name && difficulty && season && countries && duration) {
       if (countries.length > 0) {
-        const newActivity = await Activity.create(req.body);
-        await newActivity.addCountry(countries);
-        if (newActivity) {
-          return res.status(200).json(newActivity);
+        const activity = await Activity.findOne({
+          where: { name },
+        });
+
+        if (!activity) {
+          const newActivity = await Activity.create(req.body);
+          await newActivity.addCountry(countries);
+
+          return newActivity
+            ? res.status(200).json(newActivity)
+            : res.status(400).json({ message: "Activity not created" });
         }
-        return res.status(412).json({
-          message: "Unknown error",
+        return res.status(400).json({
+          message: "Activity already exists",
         });
       }
       return res.status(400).json({

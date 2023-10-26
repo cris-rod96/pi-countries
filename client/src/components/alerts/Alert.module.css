@@ -1,0 +1,53 @@
+.boxAlert {
+  width: 500px;
+  padding: 10px 20px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ccc;
+  display: grid;
+  grid-template-columns: repeat(3, 30px auto);
+  gap: 10px;
+  transform: translateY(200px);
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.typeAlert {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+}
+
+.show {
+  animation: show 1000ms linear forwards;
+}
+.hiden {
+  animation: hiden 1500ms linear forwards;
+}
+@keyframes show {
+  from {
+    transform: translateY(200px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes hiden {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200px);
+  }
+}
+.success {
+  background-color: green;
+}
+.error {
+  background-color: rgb(190, 10, 10);
+}

@@ -21,6 +21,13 @@ export const countriesSlice = createSlice({
       state.activities = action.payload;
     },
 
+    deleteActivity: (state, action) => {
+      const id = action.payload;
+      state.activities = state.activities.filter(
+        (activity) => activity.id !== id
+      );
+    },
+
     filterByActivities: (state, action) => {
       const filtro = action.payload;
       switch (filtro) {

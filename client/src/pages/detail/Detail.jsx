@@ -1,9 +1,12 @@
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import styledDetail from "./Detail.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../components/loader/Loader";
-import { Country } from "../../components/county/Country";
-import { useEffect, useState } from "react";
+import { Country } from "../../components/country/Country";
+import axios from "axios";
+import { Alert } from "../../components/alerts/Alert";
+import { useState } from "react";
+import { getActivities } from "../../redux/countriesSlice";
 
 export const Detail = () => {
   const { idCountry } = useParams();
@@ -12,13 +15,36 @@ export const Detail = () => {
     (currentCountry) => currentCountry.id === idCountry
   );
 
+  const navigate = useNavigate();
+
   if (!country) return;
   const countryActivities = country.Activities;
 
-  // const activity = activities.find((ac) => ac.id === idCountry);
+  const dispatch = useDispatch();
+
+  const deleteActivity = async (id) => {
+    try {
+      const { data, status } = await axios.delete(
+        `http://localhost:3001/activities/`,
+        {
+          data: { id },
+        }
+      );
+
+      if (status === 200) {
+        const newActivities = countryActivities.filter(
+          (activity) => activity.id !== id
+        );
+        dispatch(getActivities(newActivities));
+        navigate("/home");
+      }
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  };
 
   return (
-    <div>
+    <>
       <Loader />
       <div className={styledDetail.containerDetail}>
         <div className={styledDetail.cardDetail}>
@@ -80,10 +106,12 @@ export const Detail = () => {
             {countryActivities.map((activity) => (
               <Country
                 key={activity.id}
+                id={activity.id}
                 name={activity.name}
                 difficulty={activity.difficulty}
                 duration={activity.duration}
                 season={activity.season}
+                deleteActivity={deleteActivity}
               />
             ))}
           </div>
@@ -103,6 +131,6 @@ export const Detail = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };

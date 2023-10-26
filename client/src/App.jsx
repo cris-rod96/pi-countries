@@ -9,24 +9,28 @@ import axios from "axios";
 import { getActivities, getCountries } from "./redux/countriesSlice";
 import { Activity } from "./pages/activity/Activity";
 import { Error404 } from "./pages/404/Error404";
-import { Loader } from "./components/loader/Loader";
-import { useState } from "react";
 function App() {
   const { pathname } = useLocation();
-  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
     async function getAllCountries() {
-      const { data: countries } = await axios(
-        "http://localhost:3001/countries"
-      );
-      dispatch(getCountries(countries));
+      try {
+        const { data: countries } = await axios(
+          "http://localhost:3001/countries"
+        );
+        dispatch(getCountries(countries));
+      } catch (err) {
+        dispatch(getCountries([]));
+      }
 
-      const { data: activities } = await axios(
-        "http://localhost:3001/activities"
-      );
-
-      dispatch(getActivities(activities));
+      try {
+        const { data: activities } = await axios(
+          "http://localhost:3001/activities"
+        );
+        dispatch(getActivities(activities));
+      } catch (error) {
+        dispatch(getActivities([]));
+      }
     }
     getAllCountries();
   }, []);
@@ -40,7 +44,6 @@ function App() {
         <Route path="/activities" element={<Activity />} />
         <Route path="/detail/:idCountry" element={<Detail />} />
         <Route path="*" element={<Error404 />} />
-        {/* <Route path="*" element={<Loader />} /> */}
       </Routes>
     </>
   );

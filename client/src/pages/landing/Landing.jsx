@@ -1,7 +1,7 @@
 import { useState } from "react";
-import styledLanding from "./Landing.module.css";
 import { Link } from "react-router-dom";
 import { Loader } from "../../components/loader/Loader";
+import styledLanding from "./Landing.module.css";
 export const Landing = () => {
   const images = [
     {
@@ -11,14 +11,13 @@ export const Landing = () => {
         "Encontrarás las banderas de todos los países del mundo así como información relevante de cada país como pueden ser las Capitales,Población y Área",
     },
     {
-      image: "ciclismo_montaña.jpg",
+      image: "ciclismo.jpg",
       title: "Activities",
       description:
         "Podrás planificar y registrar tus actividades favoritas en el o los países que desees.",
     },
   ];
-  // "ciclismo_montaña.jpg",
-  // "back_country.jpg",
+
   const [indexImage, setIndexImage] = useState(0);
   const setActive = (idx) => {
     document
@@ -48,7 +47,6 @@ export const Landing = () => {
           <p>{images[indexImage]?.description}</p>
         </div>
         <div className={styledLanding.circles} id="slides">
-          {/* <button className={styledLanding.btnCircle}></button> */}
           {images.map((_, idx) => (
             <button
               className={`${idx === 0 ? styledLanding.active : ""}  ${

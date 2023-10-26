@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import styledPagination from "./Pagination.module.css";
+import arrowNext from "../../assets/next.svg";
+import arrowPrevious from "../../assets/previous.svg";
 export const Pagination = (props) => {
   const { totalPages, handlePage } = props;
   const currentPage = useSelector((state) => state.countries.currentPage);
@@ -20,7 +22,7 @@ export const Pagination = (props) => {
         disabled={currentPage - 1 == 0 ? true : false}
         onClick={handlePrevPage}
       >
-        {"<<"}
+        <img src={arrowPrevious} alt="" />
       </button>
       <span>
         {currentPage} de {totalPages}
@@ -29,7 +31,7 @@ export const Pagination = (props) => {
         disabled={currentPage + 1 > totalPages ? true : false}
         onClick={handleNextPage}
       >
-        {">>"}
+        <img src={arrowNext} alt="" />
       </button>
     </div>
   );

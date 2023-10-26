@@ -97,3 +97,15 @@
   top: -100%;
   opacity: 0;
 }
+
+.btnDelete {
+  padding: 10px 20px;
+  background-color: rgb(90, 12, 12);
+  border: 2px solid rgb(90, 12, 12);
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+}
+.btnDelete:hover {
+  background-color: rgb(109, 16, 16);
+}
