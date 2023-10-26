@@ -1,0 +1,36 @@
+.cards {
+  width: 80%;
+  margin: 20px auto;
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.notFound img {
+  width: 50%;
+  margin: 10px auto;
+  animation: turn 10s linear infinite;
+}
+.notFound > h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-align: center;
+  color: lightgray;
+}
+@keyframes turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

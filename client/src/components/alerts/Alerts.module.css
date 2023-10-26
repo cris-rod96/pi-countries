@@ -1,0 +1,111 @@
+:root {
+  --success: #3ab65c;
+  --error: #bf333b;
+  --info: #1898c0;
+  --warning: #bc8c12;
+  --success-hover: #2d8a46;
+  --error-hover: #962a31;
+  --info-hover: #147fa0;
+  --warning-hover: #9b7512;
+}
+
+.contenedorAlerts {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+.toast {
+  position: relative;
+  background-color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.toast.apertura {
+  animation: apertura 500ms ease-out;
+}
+.toast::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  animation: timing 3s ease-out forwards;
+}
+
+.toast .content {
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+}
+.toast .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.toast .btnClose {
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  padding: 0px 5px;
+  transition: 0.3s ease all;
+}
+.toast .btnClose:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+.toast .btnClose .icon {
+  width: 20px;
+  height: 20px;
+  color: #fff;
+}
+.toast.closing {
+  animation: cierre 300ms ease-out forwards;
+}
+
+@keyframes apertura {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes cierre {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100% + 40px));
+    display: none;
+  }
+}
+
+@keyframes timing {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+.toast .icon {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.toast.success {
+  background-color: var(--success);
+}
+.toast.error {
+  background-color: var(--error);
+}

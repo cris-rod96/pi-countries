@@ -1,0 +1,193 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.slides {
+  /* background: url("ciclismo_montaña.jpg"); */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slides > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1);
+  transition: all 2s;
+}
+
+.slides:hover img {
+  filter: grayscale(0);
+}
+.slides:hover .box {
+  opacity: 1;
+}
+.box {
+  position: absolute;
+  width: 400px;
+  height: max-content;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  margin: auto;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 3s;
+}
+.box > h3 {
+  font-size: 27px;
+}
+.box > p {
+  font-size: 20px;
+  line-height: 30px;
+  text-align: justify;
+}
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 20px;
+  gap: 10px;
+}
+
+.btnCircle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 20px rgb(0, 0, 0);
+}
+
+.active {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.boxWelcome {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 60%;
+  display: grid;
+  gap: 20px;
+}
+
+.content > img {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  animation: turn 20s linear infinite;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.inputName {
+  height: 60px;
+  border: none;
+  outline: none;
+
+  border: 1px solid lightgray;
+  border-radius: 12px;
+
+  padding-left: 10px;
+  font-size: 20px;
+  color: #afacac;
+  font-weight: lighter;
+}
+
+.inputName:focus {
+  border: 1px solid rgb(165, 162, 162);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+}
+.inputCheck {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.inputCheck:checked {
+  background-color: rgb(236, 72, 153);
+  border-color: rgb(236, 72, 153);
+}
+.inputCheck:disabled {
+  background-color: rgb(198, 198, 198);
+  background-image: none;
+}
+.checkbox > span {
+  font-size: 18px;
+}
+
+.btnHome {
+  outline: none;
+  width: 100%;
+  height: 50px;
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: box-shadow 1s;
+}
+
+.btnHome:hover {
+  background-color: rgb(59, 59, 59);
+  box-shadow: 0px 0px 20px rgb(59, 59, 59);
+}

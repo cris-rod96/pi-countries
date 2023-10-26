@@ -1,0 +1,63 @@
+.containerLoader {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: white;
+  z-index: 10000;
+}
+/* 
+.loader {
+  width: 100px;
+  height: 100px;
+  border: 10px dotted lightgrey;
+  border-radius: 50%;
+  border-right-color: rgb(238, 231, 231);
+  margin-bottom: 20px;
+  animation: turn 1.8s linear infinite;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite alternate;
+  margin-bottom: 100px;
+}
+@keyframes animloader {
+  0% {
+    border-color: rgb(190, 189, 189) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  }
+  33% {
+    border-color: rgb(190, 189, 189) rgb(190, 189, 189) rgba(255, 255, 255, 0)
+      rgba(255, 255, 255, 0);
+  }
+  66% {
+    border-color: rgb(190, 189, 189) rgb(190, 189, 189) rgb(190, 189, 189)
+      rgba(255, 255, 255, 0);
+  }
+  100% {
+    border-color: rgb(190, 189, 189) rgb(190, 189, 189) rgb(190, 189, 189)
+      rgb(190, 189, 189);
+  }
+}

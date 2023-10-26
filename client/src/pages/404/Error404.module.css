@@ -1,0 +1,78 @@
+.container404 {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+.content {
+  width: 80%;
+  height: 100%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .img {
+  width: 50%;
+  max-width: 50%;
+  position: relative;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  text-align: center;
+  color: lightgray;
+}
+.message > h1 {
+  font-size: 10rem;
+}
+.message > h2 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.text .btnBack {
+  width: 120px;
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid maroon;
+  background-color: maroon;
+  color: white;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.btnBack:hover {
+  background-color: white;
+  color: maroon;
+}

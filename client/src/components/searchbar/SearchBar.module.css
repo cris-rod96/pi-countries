@@ -1,0 +1,16 @@
+.inputSearch {
+  width: 500px;
+  height: 50px;
+  outline: none;
+  background-color: rgba(61, 61, 61, 0.5);
+  border: 1px solid rgba(61, 61, 61, 0.5);
+  border-radius: 8px;
+  color: whitesmoke;
+  padding-left: 10px;
+  font-size: 18px;
+}
+
+.btnReset {
+  width: 80px;
+  cursor: pointer;
+}

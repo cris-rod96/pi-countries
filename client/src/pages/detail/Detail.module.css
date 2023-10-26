@@ -1,0 +1,218 @@
+.containerDetail {
+  width: 90%;
+  height: calc(100vh - 120px);
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardDetail {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  border-radius: 12px;
+  background-color: red;
+}
+.cardDetail > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+}
+
+.nameContinent {
+  width: 100%;
+  height: 50%;
+  top: 0;
+  left: 0;
+  border-radius: 20px 20px 0 0;
+  border-bottom: none;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.nameContinent::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(185, 184, 184, 0.5);
+  top: 0px;
+  left: calc(50% - 2px);
+  z-index: 1000;
+}
+
+.boxDetail {
+  position: absolute;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  text-align: center;
+  background-color: transparent;
+  transition: all 1s;
+  border: 3px solid rgba(185, 184, 184, 0.5);
+}
+
+.officialName {
+  height: 50%;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+  border-top: none;
+  bottom: 0;
+  left: 0;
+}
+
+.populationArea {
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 0px 20px 20px 0px;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+}
+
+.detail {
+  font-size: 32px;
+  font-weight: 500;
+  color: rgb(119, 118, 118);
+}
+
+.value {
+  font-size: 22px;
+  color: rgb(185, 178, 178);
+}
+
+.populationArea::after,
+.subContinent::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(185, 184, 184, 0.5);
+  top: calc(50% - 2px);
+  left: 0px;
+  z-index: 1000;
+}
+
+.subContinent {
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 20px 0px 0px 20px;
+  justify-content: center;
+  align-items: center;
+  border-right: none;
+}
+.hoverMe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  transition: all 1s;
+  border-radius: 12px;
+}
+.hoverMe > h3 {
+  font-size: 40px;
+  color: rgb(226, 221, 221);
+  z-index: 10000;
+  transition: all 1s;
+}
+
+.cardDetail:hover {
+  border-radius: 0px;
+}
+.cardDetail:hover .cardDetail {
+  border-radius: 0px;
+}
+.cardDetail:hover img {
+  border-radius: 0px;
+}
+.cardDetail:hover .nameContinent {
+  top: -50%;
+}
+.cardDetail:hover .officialName {
+  bottom: -50%;
+}
+.cardDetail:hover .populationArea {
+  right: -50%;
+}
+
+.cardDetail:hover .subContinent {
+  left: -50%;
+}
+
+.cardDetail:hover .hoverMe {
+  backdrop-filter: blur(0px);
+}
+.cardDetail:hover .hoverMe > h3 {
+  opacity: 0;
+}
+
+.cardActivities {
+  width: 70%;
+  height: 500px;
+  margin: 20px auto;
+}
+.cardActivities > h3 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgb(218, 214, 214);
+}
+.empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.content > p {
+  font-size: 100px;
+}
+.content > h3 {
+  font-size: 24px;
+  text-wrap: wrap;
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: 300;
+  line-height: 34px;
+}
+
+.cards {
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.btnGo {
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+.btnGo:hover {
+  background-color: #3a3a3a;
+}

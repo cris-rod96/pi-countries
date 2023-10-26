@@ -1,0 +1,28 @@
+.containerFilters {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+.filter {
+  display: grid;
+  width: 100%;
+}
+
+.filterSelect {
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 16px;
+  outline: none;
+}
+.filterSelect:focus {
+  border: 1px solid #000;
+}
+.filterSelect option {
+  font-size: 16px;
+  padding: 5px;
+}
