@@ -56,7 +56,7 @@ module.exports = (sequelize) => {
               "Oceania",
               "Africa",
               "Asia",
-              "Antarctida",
+              "Antarctica",
             ],
           },
           msg: "El valor del continente ingresado es inválido",

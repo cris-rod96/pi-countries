@@ -5,6 +5,7 @@ const loader = require("./src/config/loader");
 const PORT = 3001;
 
 // Sincronizamos la base de datos y levantamos el servidor
+// force: true -> Borra la base de datos y la crea de nuevo
 conn
   .sync({ force: true })
   .then(() => {

@@ -33,7 +33,7 @@ let capsEntries = entries.map((entry) => [
 sequelize.models = Object.fromEntries(capsEntries);
 
 // Obtengo los modelos del objeto sequelize
-const { Country, Activity } = sequelize.models;
+const { Country, Activity, Continent } = sequelize.models;
 // Hago las relaciones entre los modelos
 Activity.belongsToMany(Country, { through: "Countries_Activities" });
 Country.belongsToMany(Activity, { through: "Countries_Activities" });
