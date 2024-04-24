@@ -1,4 +1,4 @@
-const { Country, Activity } = require("../../db");
+const { Country, Activity } = require("../../db.js");
 
 // Exportamos una función que obtiene todos los países
 module.exports = async (req, res) => {

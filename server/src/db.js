@@ -1,15 +1,9 @@
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { DB_USER, DB_PASSWORD, DB_HOST } = require("./config/database");
+const { DB_URI } = require("./config/database.js");
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries_db`,
-  {
-    logging: false,
-    native: false,
-  }
-);
+const sequelize = new Sequelize(DB_URI.URI, DB_URI.CONFIG);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];

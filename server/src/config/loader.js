@@ -1,10 +1,9 @@
-const axios = require("axios");
+const { data } = require("../../api/db");
 const { Country } = require("../db");
 
 // Exportamos una función que obtiene todos los países de la API y los carga en la base de datos
 module.exports = async () => {
   try {
-    const { data } = await axios("http://localhost:5000/countries");
     const countries = data.map((country) => ({
       id: country.cca3,
       name: country.name.common,

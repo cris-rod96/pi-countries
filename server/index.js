@@ -12,6 +12,7 @@ conn
     server.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);
     });
+    console.log("Base de datos conectada");
     loader();
   })
   .catch((error) => console.error(error));
