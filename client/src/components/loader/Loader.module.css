@@ -11,6 +11,8 @@
 
   background-color: white;
   z-index: 10000;
+
+  overflow: hidden;
 }
 /* 
 .loader {

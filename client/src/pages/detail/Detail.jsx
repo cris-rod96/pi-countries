@@ -5,8 +5,11 @@ import { Loader } from "../../components/loader/Loader";
 import { Country } from "../../components/country/Country";
 import axios from "axios";
 import { getActivities } from "../../redux/countriesSlice";
+import { useEffect, useState } from "react";
 
 export const Detail = () => {
+  const [showLoading, setShowLoading] = useState(false);
+
   const dispatch = useDispatch();
   // Obtenemos el id del pais de la ruta
   const { idCountry } = useParams();
@@ -50,9 +53,18 @@ export const Detail = () => {
     }
   };
 
-  return (
+  useEffect(() => {
+    setShowLoading(true);
+
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  }, []);
+
+  return showLoading ? (
+    <Loader />
+  ) : (
     <>
-      <Loader />
       <div className={styledDetail.containerDetail}>
         <div className={styledDetail.cardDetail}>
           <img src={country?.flag} alt="" />

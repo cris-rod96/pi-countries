@@ -13,6 +13,7 @@ export const Activity = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [showLoading, setShowLoading] = useState(false);
   const [errors, setErrors] = useState({
     name: "",
     difficulty: "",
@@ -198,10 +199,18 @@ export const Activity = () => {
     }
   };
 
-  return (
-    <div className={styledActivity.containerActivity}>
-      <Loader />
+  useEffect(() => {
+    setShowLoading(true);
 
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  }, []);
+
+  return showLoading ? (
+    <Loader />
+  ) : (
+    <div className={styledActivity.containerActivity}>
       <div className={styledActivity.activities}>
         <h2>Actividades</h2>
         {activities.length > 0 ? (

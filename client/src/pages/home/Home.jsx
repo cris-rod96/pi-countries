@@ -13,10 +13,12 @@ import {
 } from "../../redux/countriesSlice";
 
 import styledHome from "./Home.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const Home = () => {
   const dispatch = useDispatch();
+  const [showLoading, setShowLoading] = useState(false);
+
   // Con useSelector puedo obtener el estado de mi store
   const countriesState = useSelector((state) => state.countries);
   // Destructuro el estado de mi store
@@ -57,10 +59,19 @@ export const Home = () => {
     fetchCountries();
   }, []);
 
-  return (
+  useEffect(() => {
+    setShowLoading(true);
+
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  }, []);
+
+  return showLoading ? (
+    <Loader />
+  ) : (
     <>
       <div className={styledHome.containerHome}>
-        <Loader />
         <Filters
           filterContinent={handlerFilteredByContinent}
           orderCountries={handlerOrderCountries}
