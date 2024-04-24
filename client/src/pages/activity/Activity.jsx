@@ -9,6 +9,7 @@ import { existCountry, orderCountries } from "../../utils/functions/country";
 import { Country } from "../../components/country/Country";
 import { getActivities } from "../../redux/countriesSlice";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../config";
 export const Activity = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -130,13 +131,10 @@ export const Activity = () => {
     setShow(true);
     if (Object.values(errors).length === 0) {
       try {
-        const { status } = await axios.post(
-          "http://localhost:3001/activities",
-          {
-            ...activity,
-            countries: activity.countriesID,
-          }
-        );
+        const { status } = await axios.post(`${BASE_URL}/activitie`, {
+          ...activity,
+          countries: activity.countriesID,
+        });
         if (status === 200) {
           setChangeForm(false);
           setActivity({
@@ -176,12 +174,9 @@ export const Activity = () => {
   const deleteActivity = async (id) => {
     try {
       // Hacemos una peticion delete a nuestro servidor
-      const { data, status } = await axios.delete(
-        `http://localhost:3001/activities/`,
-        {
-          data: { id },
-        }
-      );
+      const { data, status } = await axios.delete(`${BASE_URL}/activities/`, {
+        data: { id },
+      });
 
       if (status === 200) {
         // Si la peticion fue exitosa, actualizamos el estado de nuestro store

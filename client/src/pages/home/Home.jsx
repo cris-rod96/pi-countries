@@ -14,6 +14,7 @@ import {
 
 import styledHome from "./Home.module.css";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../../config";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ export const Home = () => {
   // Con useEffect hago peticiones a mi servidor para obtener los paises, esto arregla la carga de países despues de cambiar de ruta
   useEffect(() => {
     async function fetchCountries() {
-      const { data } = await axios("http://localhost:3001/countries");
+      const { data } = await axios(`${BASE_URL}/countries`);
       dispatch(getCountries(data));
     }
     fetchCountries();

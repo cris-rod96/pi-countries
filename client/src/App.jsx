@@ -9,6 +9,7 @@ import axios from "axios";
 import { getActivities, getCountries } from "./redux/countriesSlice";
 import { Activity } from "./pages/activity/Activity";
 import { Error404 } from "./pages/404/Error404";
+import { BASE_URL } from "./config";
 function App() {
   // Con useLocation obtengo la ruta actual
   const { pathname } = useLocation();
@@ -20,9 +21,7 @@ function App() {
   useEffect(() => {
     async function getAllCountries() {
       try {
-        const { data: countries } = await axios(
-          "http://localhost:3001/countries"
-        );
+        const { data: countries } = await axios(`${BASE_URL}/countries`);
         // Envio la accion a mi store
         dispatch(getCountries(countries));
       } catch (err) {
@@ -30,9 +29,7 @@ function App() {
       }
 
       try {
-        const { data: activities } = await axios(
-          "http://localhost:3001/activities"
-        );
+        const { data: activities } = await axios(`${BASE_URL}/activities`);
         dispatch(getActivities(activities));
       } catch (error) {
         dispatch(getActivities([]));

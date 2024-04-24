@@ -5,6 +5,7 @@ import styledLanding from "./Landing.module.css";
 import { images } from "../../utils/paths/images";
 export const Landing = () => {
   const [indexImage, setIndexImage] = useState(0);
+  const [showLoading, setShowLoading] = useState(false);
   const setActive = (idx) => {
     document
       .querySelector("#slides")
@@ -24,9 +25,17 @@ export const Landing = () => {
     setActive(value);
   };
 
-  return (
+  useState(() => {
+    setShowLoading(true);
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 3000);
+  }, []);
+
+  return showLoading ? (
+    <Loader />
+  ) : (
     <div className={styledLanding.container}>
-      <Loader />
       <div className={styledLanding.slides}>
         <img src={images[indexImage]?.image} alt="" />
         <div className={styledLanding.box}>

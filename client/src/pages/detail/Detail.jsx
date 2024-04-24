@@ -6,6 +6,7 @@ import { Country } from "../../components/country/Country";
 import axios from "axios";
 import { getActivities } from "../../redux/countriesSlice";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../../config";
 
 export const Detail = () => {
   const [showLoading, setShowLoading] = useState(false);
@@ -30,12 +31,9 @@ export const Detail = () => {
   const deleteActivity = async (id) => {
     try {
       // Hacemos una peticion delete a nuestro servidor
-      const { data, status } = await axios.delete(
-        `http://localhost:3001/activities/`,
-        {
-          data: { id },
-        }
-      );
+      const { data, status } = await axios.delete(`${BASE_URL}/activities/`, {
+        data: { id },
+      });
 
       if (status === 200) {
         // Si la peticion fue exitosa, actualizamos el estado de nuestro store
