@@ -4,7 +4,7 @@ const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = require("./config/database");
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries_db`,
   {
     logging: false,
     native: false,
